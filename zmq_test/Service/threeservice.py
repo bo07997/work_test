@@ -17,18 +17,18 @@ class service:
         return
 
     def process_message_one(self, msg):
-        print "get thread one message"
-        print "processing .....", msg
+        print ("get thread one message")
+        print ("processing .....", msg)
         return
 
     def process_message_two(self, msg):
-        print "get thread two message"
-        print "processing .....", msg
+        print ("get thread two message")
+        print ("processing .....", msg)
         return
 
     def timeout(self):
-        print "thread three timeout"
-        print "thread two timeout"
+        print ("thread three timeout")
+        print ("thread two timeout")
         data = {}
         data['thread'] = 'three'
         self.socket_to_others.send(zmqconfig.three_to_one_subject, zmq.SNDMORE)

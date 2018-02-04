@@ -6,7 +6,6 @@ import tornado.iostream
 import tornado.web
 import json
 import zmq
-from urls import urls
 import zmqconfig
 from zmq.eventloop import ioloop, zmqstream
 from zmq.eventloop.ioloop import IOLoop
@@ -21,20 +20,20 @@ class service:
         return
 
     def process_message_two(self, msg):
-        print "get thread two message"
-        print "processing .....", msg
+        print ("get thread two message")
+        print ("processing .....", msg)
         return
 
     def process_message_three(self, msg):
-        print "get thread three message"
-        print "processing......", msg
+        print ("get thread three message")
+        print ("processing......", msg)
         return
 
     def timeout(self):
-        print "thread one timeout"
+        print ("thread one timeout")
         data = {}
         data['thread'] = 'one'
-        data['hello'] ='hello zmq'
+        data['hello'] ='hello Service'
         self.socket_to_others.send(zmqconfig.one_to_two_subject, zmq.SNDMORE)
         self.socket_to_others.send(json.dumps(data))
         self.socket_to_others.send(zmqconfig.one_to_three_subject, zmq.SNDMORE)

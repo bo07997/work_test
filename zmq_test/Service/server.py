@@ -10,7 +10,7 @@ import zmq
 context = zmq.Context()
 
 def timeout():
-    print "timeout"
+    print ("timeout")
     return
 
 def one():
