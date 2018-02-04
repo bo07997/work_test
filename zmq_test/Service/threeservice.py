@@ -31,28 +31,32 @@ class service:
         print ("thread two timeout")
         data = {}
         data['thread'] = 'three'
-        self.socket_to_others.send(zmqconfig.three_to_one_subject, zmq.SNDMORE)
-        self.socket_to_others.send(json.dumps(data))
-        self.socket_to_others.send(zmqconfig.three_to_two_subject, zmq.SNDMORE)
-        self.socket_to_others.send(json.dumps(data))
+        self.socket_to_others.send_string(zmqconfig.three_to_one_subject, zmq.SNDMORE)
+        self.socket_to_others.send_string(json.dumps(data))
+        self.socket_to_others.send_string(zmqconfig.three_to_two_subject, zmq.SNDMORE)
+        self.socket_to_others.send_string(json.dumps(data))
         self.ioloop.add_timeout(time.time() + 3, self.timeout)
         return
 
     def run(self):
-        self.socket_to_others = zmqconfig.context.socket(zmq.PUB)
-        self.socket_to_others.bind(zmqconfig.three_zmq_addr)
+        try:
+            self.socket_to_others = zmqconfig.context.socket(zmq.PUB)
+            self.socket_to_others.bind(zmqconfig.three_zmq_addr)
 
-        self.socket_from_two = zmqconfig.context.socket(zmq.SUB)
-        self.socket_from_two.connect(zmqconfig.two_zmq_addr)
-        self.socket_from_two.setsockopt(zmq.SUBSCRIBE, zmqconfig.two_to_three_subject)
-        self.stream_from_two_sub = zmqstream.ZMQStream(self.socket_from_two)
-        self.stream_from_two_sub.on_recv(self.process_message_two)
+            self.socket_from_two = zmqconfig.context.socket(zmq.SUB)
+            self.socket_from_two.connect(zmqconfig.two_zmq_addr)
+            self.socket_from_two.setsockopt_string(zmq.SUBSCRIBE, zmqconfig.two_to_three_subject)
+            self.stream_from_two_sub = zmqstream.ZMQStream(self.socket_from_two)
+            self.stream_from_two_sub.on_recv(self.process_message_two)
 
-        self.socket_from_one = zmqconfig.context.socket(zmq.SUB)
-        self.socket_from_one.connect(zmqconfig.one_zmq_addr)
-        self.socket_from_one.setsockopt(zmq.SUBSCRIBE, zmqconfig.one_to_three_subject)
-        self.stream_from_one_sub = zmqstream.ZMQStream(self.socket_from_one)
-        self.stream_from_one_sub.on_recv(self.process_message_one)
-        self.ioloop.add_timeout(time.time(), self.timeout)
-        self.ioloop.start()
-        return
+            self.socket_from_one = zmqconfig.context.socket(zmq.SUB)
+            self.socket_from_one.connect(zmqconfig.one_zmq_addr)
+            self.socket_from_one.setsockopt_string(zmq.SUBSCRIBE, zmqconfig.one_to_three_subject)
+            self.stream_from_one_sub = zmqstream.ZMQStream(self.socket_from_one)
+            self.stream_from_one_sub.on_recv(self.process_message_one)
+            self.ioloop.add_timeout(time.time(), self.timeout)
+            self.ioloop.start()
+            return
+        except:
+            a = 0
+            pass
