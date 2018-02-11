@@ -3,9 +3,8 @@ import tornado.ioloop
 import tornado.web
 import time
 import multiprocessing
-from oneservice import service as oneservice
-from twoservice import service as twoservice
-from threeservice import service as threeservice
+from ServerService import service as oneservice
+from CilentService import service as twoservice
 import zmq
 context = zmq.Context()
 
@@ -23,16 +22,10 @@ def two():
     two.run()
     return
 
-def three():
-    three = threeservice()
-    three.run()
-    return
 
 if __name__ == "__main__":
     serviceone = multiprocessing.Process(target=one, args=())
     servicetwo = multiprocessing.Process(target=two, args=())
-    servicethree = multiprocessing.Process(target=three, args=())
-    servicethree.start()
     servicetwo.start()
     serviceone.start()
     for p in multiprocessing.active_children():

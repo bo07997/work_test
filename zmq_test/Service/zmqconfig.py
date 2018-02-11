@@ -2,21 +2,8 @@
 import zmq
 
 context = zmq.Context()
-one_zmq_addr = "tcp://127.0.0.1:9001"
-one_to_two_subject = "one_to_two_subject"
-one_to_three_subject = "one_to_three_subject"
+server_zmq_addr = "tcp://127.0.0.1:9001"
+server_to_cilent_subject = "server_to_cilent_subject"
 
-two_zmq_addr = "tcp://127.0.0.1:9002"
-two_to_one_subject = "two_to_one_subject"
-two_to_three_subject = "two_to_three_subject"
-
-three_zmq_addr = "tcp://127.0.0.1:9003"
-three_to_one_subject = "three_to_one_subject"
-three_to_two_subject = "three_to_two_subject"
-
-skin_zmq_addr = "tcp://127.0.0.1:8002"
-skin_username = "ZGuard"
-skin_password = "jz_hhj@#$"
-
-test_zmq_addr = "tcp://192.168.58.128:8002"
-subject = "test"
+server_zmq_addr_accept = "tcp://127.0.0.1:9002"
+cilent_to_server_subject = "cilent_to_server_subject"
