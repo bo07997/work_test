@@ -2,15 +2,15 @@
 import zmq
 
 context = zmq.Context()
-one_zmq_addr = "inproc://one_zmq_addr"
+one_zmq_addr = "tcp://127.0.0.1:9001"
 one_to_two_subject = "one_to_two_subject"
 one_to_three_subject = "one_to_three_subject"
 
-two_zmq_addr = "inproc://two_zmq_addr"
+two_zmq_addr = "tcp://127.0.0.1:9002"
 two_to_one_subject = "two_to_one_subject"
 two_to_three_subject = "two_to_three_subject"
 
-three_zmq_addr = "inproc://three_zmq_addr"
+three_zmq_addr = "tcp://127.0.0.1:9003"
 three_to_one_subject = "three_to_one_subject"
 three_to_two_subject = "three_to_two_subject"
 
