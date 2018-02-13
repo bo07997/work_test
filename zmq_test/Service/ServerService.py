@@ -2,10 +2,11 @@
 import time
 import json
 import zmq
-import zmqconfig
+import zmq_test.Service.server_config as server_config
 from zmq.eventloop import ioloop, zmqstream
 from zmq.eventloop.ioloop import IOLoop
 from zmq.eventloop.ioloop import ZMQIOLoop
+import sys
 #ioloop.install()
 #application = tornado.web.Application(urls)
 class service:
@@ -21,6 +22,8 @@ class service:
         if body["type"] == "heart":
             self.cilents[bytes.decode(msg[0])] = time.time()
             pass
+        elif body["type"] == "cmd":
+            a = body["cmd"]
         return
 
     def timeout(self):
@@ -31,13 +34,13 @@ class service:
         return
 
     def run(self):
-        self.socket_to_others = zmqconfig.context.socket(zmq.PUB)
-        self.socket_to_others.bind(zmqconfig.server_zmq_addr)
+        self.socket_to_others = server_config.context.socket(zmq.PUB)
+        self.socket_to_others.bind(server_config.server_zmq_addr)
 
         # 服务端收信息,不同机子
-        self.socket_from_others = zmqconfig.context.socket(zmq.SUB)
+        self.socket_from_others = server_config.context.socket(zmq.SUB)
         self.socket_from_others.setsockopt_string(zmq.SUBSCRIBE, "")
-        self.socket_from_others.bind(zmqconfig.server_zmq_addr_accept)
+        self.socket_from_others.bind(server_config.server_zmq_addr_accept)
         self.stream_from_others_sub = zmqstream.ZMQStream(self.socket_from_others)
         self.stream_from_others_sub.on_recv(self.process_message_cilent)
 

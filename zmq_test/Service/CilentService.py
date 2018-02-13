@@ -2,7 +2,7 @@
 import time
 import json
 import zmq
-import zmqconfig
+import zmq_test.Service.client_config as client_config
 import random
 import json
 from zmq.eventloop import ioloop, zmqstream
@@ -44,10 +44,10 @@ class service:
         return my_ip
 
     def run(self):
-        self.socket_to_others = zmqconfig.context.socket(zmq.PUB)
+        self.socket_to_others = client_config.context.socket(zmq.PUB)
         self.socket_to_others.connect(server_zmq_addr_accept)
 
-        self.socket_from_server = zmqconfig.context.socket(zmq.SUB)
+        self.socket_from_server = client_config.context.socket(zmq.SUB)
         self.socket_from_server.connect(server_zmq_addr)
         self.socket_from_server.setsockopt_string(zmq.SUBSCRIBE, server_to_cilent_subject)
         self.stream_from_server_sub = zmqstream.ZMQStream(self.socket_from_server)

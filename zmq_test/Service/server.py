@@ -1,29 +1,35 @@
 import time
 import multiprocessing
-from ServerService import service as oneservice
-from CilentService import service as twoservice
+from zmq_test.Service.ServerService import service as serverService
+from zmq_test.Service.CilentService import service as cilentService
+from zmq_test.Service.input import service as inputService
 import zmq
 context = zmq.Context()
 
-def timeout():
-    print ("timeout")
+
+def server():
+    server = serverService()
+    server.run()
     return
 
-def one():
-    one = oneservice()
-    one.run()
+
+def cilent():
+    cilent = cilentService()
+    cilent.run()
     return
 
-def two():
-    two = twoservice()
-    two.run()
-    return
 
+def input():
+    input = inputService()
+    input.run()
+    return
 
 if __name__ == "__main__":
-    serviceone = multiprocessing.Process(target=one, args=())
-    servicetwo = multiprocessing.Process(target=two, args=())
-    servicetwo.start()
-    serviceone.start()
+    server_Service = multiprocessing.Process(target=server, args=())
+    cilent_Service = multiprocessing.Process(target=cilent, args=())
+    input_Service = multiprocessing.Process(target=input, args=())
+    server_Service.start()
+    cilent_Service.start()
+    input_Service.start()
     for p in multiprocessing.active_children():
         print("child p.name:" + p.name + "\tp.id" + str(p.pid))
