@@ -12,7 +12,6 @@ ioloop.install()
 
 server_zmq_addr_accept = "tcp://127.0.0.1:9002"
 server_zmq_addr = "tcp://127.0.0.1:9001"
-server_to_cilent_subject = "server_to_cilent_subject"
 
 
 class service:
@@ -30,8 +29,9 @@ class service:
         try:
             my_ip = self.GetOuterIP()
             if not hasattr(self, "tag"):
-                map = {"ip": str(my_ip), "random": random.randrange(0, 99999)}
+                map = {"ip": bytes.decode(my_ip), "random": random.randrange(0, 99999)}
                 self.tag = map
+                self.socket_from_server.setsockopt_string(zmq.SUBSCRIBE, json.dumps(self.tag))
             self.socket_to_others.send_string(json.dumps(self.tag), zmq.SNDMORE)
             self.socket_to_others.send_string(json.dumps({"type": "heart"}))
             self.ioloop.add_timeout(time.time() + 3, self.timeout)
@@ -49,7 +49,7 @@ class service:
 
         self.socket_from_server = client_config.context.socket(zmq.SUB)
         self.socket_from_server.connect(server_zmq_addr)
-        self.socket_from_server.setsockopt_string(zmq.SUBSCRIBE, server_to_cilent_subject)
+        self.socket_from_server.setsockopt_string(zmq.SUBSCRIBE, "temp")
         self.stream_from_server_sub = zmqstream.ZMQStream(self.socket_from_server)
         self.stream_from_server_sub.on_recv(self.process_message_server)
 

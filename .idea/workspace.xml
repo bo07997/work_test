@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb1717f8-760e-4d15-908b-ae067f151065" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/zmq_test/Service/server_config.py" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/zmq_test/Service/CilentService.py" afterPath="$PROJECT_DIR$/zmq_test/Service/CilentService.py" />
       <change beforePath="$PROJECT_DIR$/zmq_test/Service/ServerService.py" afterPath="$PROJECT_DIR$/zmq_test/Service/ServerService.py" />
+      <change beforePath="$PROJECT_DIR$/zmq_test/Service/input.py" afterPath="$PROJECT_DIR$/zmq_test/Service/input.py" />
       <change beforePath="$PROJECT_DIR$/zmq_test/Service/server.py" afterPath="$PROJECT_DIR$/zmq_test/Service/server.py" />
-      <change beforePath="$PROJECT_DIR$/zmq_test/Service/zmqconfig.py" afterPath="$PROJECT_DIR$/zmq_test/Service/client_config.py" />
+      <change beforePath="$PROJECT_DIR$/zmq_test/Service/server_config.py" afterPath="$PROJECT_DIR$/zmq_test/Service/server_config.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,8 +20,8 @@
       <file leaf-file-name="ServerService.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/zmq_test/Service/ServerService.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="22" column="40" lean-forward="false" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
+            <state relative-caret-position="-202">
+              <caret line="42" column="58" lean-forward="true" selection-start-line="42" selection-start-column="58" selection-end-line="42" selection-end-column="58" />
               <folding>
                 <element signature="e#16#27#0" expanded="true" />
               </folding>
@@ -30,23 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="server.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/zmq_test/Service/server.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="input.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="input.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/zmq_test/Service/input.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="22" column="44" lean-forward="true" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
+            <state relative-caret-position="194">
+              <caret line="30" column="32" lean-forward="true" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
               <folding>
                 <element signature="e#16#27#0" expanded="true" />
               </folding>
@@ -54,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CilentService.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CilentService.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/zmq_test/Service/CilentService.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="36" column="12" lean-forward="false" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="66" />
+            <state relative-caret-position="194">
+              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding>
                 <element signature="e#16#27#0" expanded="true" />
               </folding>
@@ -69,8 +56,8 @@
       <file leaf-file-name="server_config.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/zmq_test/Service/server_config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="108">
+              <caret line="6" column="51" lean-forward="true" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -101,11 +88,11 @@
         <option value="$PROJECT_DIR$/zmq_test/Service/twoservice.py" />
         <option value="$PROJECT_DIR$/zmq_test/Service/hello.py" />
         <option value="$PROJECT_DIR$/zmq_test/Service/test.py" />
-        <option value="$PROJECT_DIR$/zmq_test/Service/CilentService.py" />
         <option value="$PROJECT_DIR$/zmq_test/Service/server_config.py" />
-        <option value="$PROJECT_DIR$/zmq_test/Service/ServerService.py" />
         <option value="$PROJECT_DIR$/zmq_test/Service/server.py" />
         <option value="$PROJECT_DIR$/zmq_test/Service/input.py" />
+        <option value="$PROJECT_DIR$/zmq_test/Service/CilentService.py" />
+        <option value="$PROJECT_DIR$/zmq_test/Service/ServerService.py" />
       </list>
     </option>
   </component>
@@ -182,7 +169,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.server">
+  <component name="RunManager" selected="Python.input">
     <configuration name="input" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -225,8 +212,8 @@
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.server" />
-        <item index="1" class="java.lang.String" itemvalue="Python.input" />
+        <item index="0" class="java.lang.String" itemvalue="Python.input" />
+        <item index="1" class="java.lang.String" itemvalue="Python.server" />
       </list>
     </recent_temporary>
   </component>
@@ -284,18 +271,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/zmq_test/Service/input.py</url>
-          <line>21</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/zmq_test/Service/input.py</url>
-          <line>22</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -303,7 +278,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="16" />
+      <option name="time" value="27" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -692,48 +667,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zmq_test/Service/server_config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zmq_test/Service/CilentService.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="36" column="12" lean-forward="false" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="66" />
-          <folding>
-            <element signature="e#16#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zmq_test/Service/ServerService.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="40" lean-forward="false" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
-          <folding>
-            <element signature="e#16#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zmq_test/Service/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="252">
+          <caret line="23" column="32" lean-forward="false" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/zmq_test/Service/server_config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="51" lean-forward="true" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.5/dist-packages/tornado/stack_context.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="276" column="0" lean-forward="false" selection-start-line="276" selection-start-column="0" selection-end-line="276" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zmq_test/Service/ServerService.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-202">
+          <caret line="42" column="58" lean-forward="true" selection-start-line="42" selection-start-column="58" selection-end-line="42" selection-end-column="58" />
+          <folding>
+            <element signature="e#16#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/zmq_test/Service/input.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="22" column="44" lean-forward="true" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
+        <state relative-caret-position="194">
+          <caret line="30" column="32" lean-forward="true" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+          <folding>
+            <element signature="e#16#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zmq_test/Service/CilentService.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
             <element signature="e#16#27#0" expanded="true" />
           </folding>

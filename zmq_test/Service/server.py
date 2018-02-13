@@ -19,17 +19,10 @@ def cilent():
     return
 
 
-def input():
-    input = inputService()
-    input.run()
-    return
-
 if __name__ == "__main__":
     server_Service = multiprocessing.Process(target=server, args=())
     cilent_Service = multiprocessing.Process(target=cilent, args=())
-    input_Service = multiprocessing.Process(target=input, args=())
     server_Service.start()
     cilent_Service.start()
-    input_Service.start()
     for p in multiprocessing.active_children():
         print("child p.name:" + p.name + "\tp.id" + str(p.pid))
