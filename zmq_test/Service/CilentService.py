@@ -1,8 +1,5 @@
 # coding: UTF-8
 import time
-import tornado
-import tornado.ioloop
-import tornado.iostream
 import json
 import zmq
 import zmqconfig

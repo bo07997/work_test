@@ -1,9 +1,5 @@
 # coding: UTF-8
 import time
-import tornado
-import tornado.ioloop
-import tornado.iostream
-import tornado.web
 import json
 import zmq
 import zmqconfig
@@ -21,9 +17,9 @@ class service:
         return
 
     def process_message_cilent(self, msg):
-        body = json.loads(msg[1])
+        body = json.loads(bytes.decode(msg[1]))
         if body["type"] == "heart":
-            self.cilents[msg[0]] = time.time()
+            self.cilents[bytes.decode(msg[0])] = time.time()
             pass
         return
 
