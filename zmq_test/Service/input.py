@@ -1,12 +1,9 @@
 # coding: UTF-8
 import time
-import json
 import zmq
-import zmq_test.Service.server_config as server_config
-import random
+import server_config
 import json
 from zmq.eventloop import ioloop, zmqstream
-from urllib.request import urlopen
 context = zmq.Context()
 ioloop.install()
 

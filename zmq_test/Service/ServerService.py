@@ -2,7 +2,7 @@
 import time
 import json
 import zmq
-import zmq_test.Service.server_config as server_config
+import server_config
 from zmq.eventloop import ioloop, zmqstream
 from zmq.eventloop.ioloop import IOLoop
 from zmq.eventloop.ioloop import ZMQIOLoop

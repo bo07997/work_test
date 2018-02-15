@@ -1,7 +1,7 @@
 # coding: UTF-8
 import time
 import zmq
-import zmq_test.Service.client_config as client_config
+import client_config
 import random
 import json
 import sys,os,subprocess
