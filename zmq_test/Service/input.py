@@ -15,18 +15,38 @@ class service:
 
     def __init__(self):
         self.ioloop = ioloop.IOLoop().instance()
+        self.state = "server"
         return
 
     def process_message_server(self, msg):
-        print("get thread one message")
-        print("processing .....", msg)
+        body = json.loads(bytes.decode(msg[1]))
+        if body["type"] == "server_message":
+            print("------------------------------------------------------------------")
+            print("ip                                               time")
+            for ip in body["cilents"]:
+                time_array = time.localtime(body["cilents"][ip]["time"])
+                result_time = time.strftime("%Y-%m-%d %H:%M:%S", time_array)
+                print("%s                                  %s" % (ip, result_time))
+        elif body["type"] == "error":
+            print(body["error"])
+        elif body["type"] == "cmd_result":
+            if body["cmd_result"] != "":
+                print(body["cmd_result"])
+            else:
+                print("------------------------------------------------------------------")
+                if body["code"] == 0:
+                    print("success")
+                else:
+                    print("sorry, error is occur")
+        elif body["type"] == "state":
+            self.state = body["state"]
         return
 
     def timeout(self):
         try:
-            str = input("input:")
+            str_input = input("%s:" % self.state)
             self.socket_to_others.send_string("input", zmq.SNDMORE)
-            self.socket_to_others.send_string(json.dumps({"ip_cmd": str, "type": "cmd"}))
+            self.socket_to_others.send_string(json.dumps({"ip_cmd": str_input, "type": "cmd"}))
             self.ioloop.add_timeout(time.time() + 1, self.timeout)
         except Exception as err:
             pass
@@ -44,6 +64,7 @@ class service:
         self.ioloop.add_timeout(time.time(), self.timeout)
         self.ioloop.start()
         return
+
 
 if __name__ == '__main__':
     input_ = service()
