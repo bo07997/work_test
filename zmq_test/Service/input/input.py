@@ -1,7 +1,7 @@
 # coding: UTF-8
 import time
 import zmq
-import server_config
+import input_config
 import json
 from zmq.eventloop import ioloop, zmqstream
 context = zmq.Context()
@@ -20,8 +20,8 @@ class service:
         if body["type"] == "server_message":
             print("------------------------------------------------------------------")
             print("ip                                               time")
-            for ip in body["cilents"]:
-                time_array = time.localtime(body["cilents"][ip]["time"])
+            for ip in body["clients"]:
+                time_array = time.localtime(body["clients"][ip]["time"])
                 result_time = time.strftime("%Y-%m-%d %H:%M:%S", time_array)
                 print("%s                                  %s" % (ip, result_time))
         elif body["type"] == "error":
@@ -49,12 +49,12 @@ class service:
             pass
 
     def run(self):
-        self.socket_to_others = server_config.context.socket(zmq.PUB)
-        self.socket_to_others.connect(server_config.server_zmq_addr_accept)
+        self.socket_to_others = input_config.context.socket(zmq.PUB)
+        self.socket_to_others.connect(input_config.server_zmq_addr_accept)
 
-        self.socket_from_server = server_config.context.socket(zmq.SUB)
-        self.socket_from_server.connect(server_config.server_zmq_addr)
-        self.socket_from_server.setsockopt_string(zmq.SUBSCRIBE, server_config.server_to_input_subject)
+        self.socket_from_server = input_config.context.socket(zmq.SUB)
+        self.socket_from_server.connect(input_config.server_zmq_addr)
+        self.socket_from_server.setsockopt_string(zmq.SUBSCRIBE, input_config.server_to_input_subject)
         self.stream_from_server_sub = zmqstream.ZMQStream(self.socket_from_server)
         self.stream_from_server_sub.on_recv(self.process_message_server)
 

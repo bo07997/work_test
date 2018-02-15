@@ -10,9 +10,6 @@ from urllib.request import urlopen
 context = zmq.Context()
 ioloop.install()
 
-server_zmq_addr_accept = "tcp://127.0.0.1:9002"
-server_zmq_addr = "tcp://127.0.0.1:9001"
-
 
 class service:
 
@@ -28,7 +25,7 @@ class service:
             self.socket_to_others.send_string(json.dumps({"type": "cmd_result", "code": code, "cmd_result": result}))
         a = 0
 
-    # cilent heart
+    # client heart
     def timeout(self):
         try:
             if not hasattr(self, "tag"):
@@ -49,10 +46,10 @@ class service:
 
     def run(self):
         self.socket_to_others = client_config.context.socket(zmq.PUB)
-        self.socket_to_others.connect(server_zmq_addr_accept)
+        self.socket_to_others.connect(client_config.server_zmq_addr_accept)
 
         self.socket_from_server = client_config.context.socket(zmq.SUB)
-        self.socket_from_server.connect(server_zmq_addr)
+        self.socket_from_server.connect(client_config.server_zmq_addr)
         self.socket_from_server.setsockopt_string(zmq.SUBSCRIBE, "temp")
         self.stream_from_server_sub = zmqstream.ZMQStream(self.socket_from_server)
         self.stream_from_server_sub.on_recv(self.process_message_server)
