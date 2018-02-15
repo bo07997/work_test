@@ -11,12 +11,14 @@ import sys
 import os
 #ioloop.install()
 #application = tornado.web.Application(urls)
+
+
 class service:
 
     def __init__(self):
         self.ioloop = ZMQIOLoop()
         self.ioloop.install()
-        self.client = {}
+        self.clients = {}
         self.in_client = "server"
         return
 
@@ -24,14 +26,14 @@ class service:
         body = json.loads(bytes.decode(msg[1]))
         # from client heart
         if body["type"] == "heart":
-            client = json.loads(bytes.decode(msg[0]))
-            ip = client["ip"]
-            if ip not in self.client:
-                self.client[ip] = {}
-                self.client[ip]["time"] = time.time()
-                self.client[ip]["tag"] = bytes.decode(msg[0])
+            clients = json.loads(bytes.decode(msg[0]))
+            ip = clients["ip"]
+            if ip not in self.clients:
+                self.clients[ip] = {}
+                self.clients[ip]["time"] = time.time()
+                self.clients[ip]["tag"] = bytes.decode(msg[0])
             else:
-                self.client[ip]["time"] = time.time()
+                self.clients[ip]["time"] = time.time()
 
             pass
         # from input t
