@@ -47,6 +47,8 @@ class service:
                     message["type"] = "server_message"
                     if self.clients != {}:
                         message["clients"] = self.clients
+                    else:
+                        message["clients"] = {}
                     self.socket_to_others.send_string(server_config.server_to_input_subject, zmq.SNDMORE)
                     self.socket_to_others.send_string(json.dumps(message))
                 elif temp_ip_cmd[0] == "ssh":
