@@ -23,8 +23,11 @@ class service:
             if "clients" not in body:
                 return
             for ip in body["clients"]:
-                time_array = time.localtime(body["clients"][ip]["time"])
-                result_time = time.strftime("%Y-%m-%d %H:%M:%S", time_array)
+                if body["clients"][ip]["time"] == 0:
+                    result_time = "time out"
+                else:
+                    time_array = time.localtime(body["clients"][ip]["time"])
+                    result_time = time.strftime("%Y-%m-%d %H:%M:%S", time_array)
                 print("%s                                  %s" % (ip, result_time))
         elif body["type"] == "error":
             print(body["error"])
