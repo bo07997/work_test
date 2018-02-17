@@ -20,8 +20,8 @@ class service:
         if body["type"] == "server_message":
             print("------------------------------------------------------------------")
             print("ip                                               time")
-            if not body.has_key("clients"):
-                return 
+            if "clients" not in body:
+                return
             for ip in body["clients"]:
                 time_array = time.localtime(body["clients"][ip]["time"])
                 result_time = time.strftime("%Y-%m-%d %H:%M:%S", time_array)
