@@ -48,7 +48,7 @@ class service:
                     if self.clients != {}:
                         # del overdate
                         for ip in self.clients:
-                            if time.time() - self.clients[ip]["time"] > server_config.delay:
+                            if time.time() - self.clients[ip]["time"] > float(server_config.delay):
                                 self.clients[ip]["time"] = "time out"
                         message["clients"] = self.clients
                     else:
